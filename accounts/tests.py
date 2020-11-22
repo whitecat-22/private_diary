@@ -10,8 +10,7 @@ class TestLogin(LiveServerTestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.selenium = WebDriver(executable_path='C:/Program Files/chromedriver_win32/chromedriver.exe')
-#        cls.selenium = WebDriver(executable_path='<Chromeドライバ配置場所>')
+        cls.selenium = WebDriver(executable_path='C:/Program Files/chromedriver_win32/chromedriver.exe')    # <Chromeドライバ配置場所>
 
 
     @classmethod
@@ -21,15 +20,13 @@ class TestLogin(LiveServerTestCase):
 
     def test_login(self):
         # ログインページを開く
-        self.selenium.get('http://localhost:8000' + str(reverse_lazy('account_login')))
+        self.selenium.get('http://127.0.0.1:8000' + str(reverse_lazy('account_login')))
 
         # ログイン
         username_input = self.selenium.find_element_by_name("login")
-#        username_input.send_keys('<ユーザー登録済みのメールアドレス>')
-        username_input.send_keys('test1@example.com')
-        password_input = self.selenium.find_element_by_name("password")
-#        password_input.send_keys('<ログインパスワード>')
-        password_input.send_keys('test1pswd')
+        username_input.send_keys('gattinobianco22@gmail.com')    # <ユーザー登録済みのメールアドレス>
+        password_input = self.selenium.find_element_by_name("password")    # <ログインパスワード>
+        password_input.send_keys('cat22cat')
         self.selenium.find_element_by_class_name('btn').click()
 
         # ページタイトルの検証
